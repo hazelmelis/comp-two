@@ -1,3 +1,0 @@
-﻿  queue.c
-C:\Users\hazel\comp-two\Ferry Loading\Ferry Loading\queue.c(99,1): warning C4715: 'queue_service': not all control paths return a value
-  Ferry Loading.vcxproj -> C:\Users\hazel\comp-two\Ferry Loading\x64\Debug\Ferry Loading.exe
