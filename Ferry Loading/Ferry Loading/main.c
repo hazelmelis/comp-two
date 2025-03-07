@@ -1,3 +1,14 @@
+/**********************************************************************
+Program: Ferry Loading
+Author: Hazel Erkmen
+Date: 3/6/2025
+Time spent: 2 hours
+Purpose: The purpose of this program is to implement a queue data 
+	structure as a linked list to solve the Ferry Loading problem 11034 
+	from the UVa Online Judge. I learned how to create and use a double 
+	ended queue along with the common queue interface functions. 
+***********************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "queue.h"
