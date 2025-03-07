@@ -111,4 +111,5 @@ void queue_destroy(QUEUE* phQ)
 	}
 
 	free(pQ);
+	*phQ = NULL;
 }
