@@ -6,6 +6,7 @@ int main(int argc, char* argv[])
 {
 	int a[] = { 38, 5, 34, 23, 69, 0, 1, 5, 6, 4, 14 };
 	int size = sizeof(a) / sizeof(a[0]);
+
 	bubble_sort(a, size);
 
 	for (int i = 0; i < size; ++i)
