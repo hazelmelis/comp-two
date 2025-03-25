@@ -15,6 +15,8 @@ void print_list(Node* head);
 
 Node* recRev(Node* head);
 
+void refRev(Node** pHead);
+
 int main(int argc, char* argv[])
 {
 	Node* head = NULL;
@@ -26,7 +28,8 @@ int main(int argc, char* argv[])
 
 	print_list(head);
 
-	head = recRev(head);
+	//head = recRev(head);
+	refRev(&head);
 	printf("\n");
 	print_list(head);
 
@@ -81,4 +84,18 @@ Node* recRev(Node* head)
 	print_list(newHead);
 
 	return newHead;
+}
+
+void refRev(Node** pHead)
+{
+	Node* newHead = *pHead;
+	if (*pHead == NULL || (*pHead)->next == NULL)
+	{
+		*pHead = newHead;
+		return;
+	}
+
+	refRev(&((*pHead)->next));
+	(*pHead)->next->next = *pHead;
+	(*pHead)->next = NULL;
 }
