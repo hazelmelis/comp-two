@@ -1,6 +1,19 @@
+/**********************************************************************
+Program: Number Filter
+Author: Hazel Erkmen
+Date: 4/14/25
+Time spent: 3 hours
+Purpose: The purpose of this program is to think about all the data 
+structures learned in this course and choose the right one such that
+a seemingly difficult problem can be solved with ease. In this case,
+using the bit flags allows us to easily hold a boolean value for all 
+2,000,000,000 possible input numbers. In an array of integers, each
+successive bit is a number from 0 - 2,000,000,000, 1 meaning it has
+already been entered before, and 0 meaning it is a new entry. 
+***********************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
-#include "bit_flags.h"
 
 #define MAX_VALUE 2000000000
 const int BITS_PER_INT = sizeof(int) * 8;
@@ -36,8 +49,6 @@ int main(int argc, char* argv[])
 
 		scanf("%d", &input);
 	}
-	printf("%d\n", max_input);
-
 	
 	for (int i = 0; i < max_input / BITS_PER_INT + 1; ++i)
 	{
