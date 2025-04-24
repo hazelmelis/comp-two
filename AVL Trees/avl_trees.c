@@ -33,6 +33,7 @@ int main(int argc, char* argv[])
 
 
 
+
 	return 0;
 }
 
@@ -49,9 +50,6 @@ void tree_insert(Node** root, int n)
 	}
 
 	binary_search(root, new_node);
-	int max; 
-	find_max_depth(*root, &max);
-	printf("max: %d\n", max);
 }
 
 void binary_search(Node** pRoot, Node* insertion)
@@ -82,7 +80,7 @@ void inorder(Node* root)
 	if (root != NULL)
 	{
 		inorder(root->left);
-		printf("%d  depth: %d\n", root->data, root->depth);
+		printf("%d  balance factor: %d\n", root->data, get_balance_factor(root));
 		inorder(root->right);
 	}
 }
@@ -99,3 +97,32 @@ void find_max_depth(Node* root, int* max)
 	find_max_depth(root->right, max);
 }
 
+int get_balance_factor(Node* root)
+{
+	int right_depth;
+	int left_depth;
+
+	if (root->left == NULL && root->right == NULL) return 0;
+
+
+
+	if (root->left == NULL)
+	{
+		left_depth = root->depth;
+	}
+	else
+	{
+		find_max_depth(root->left, &left_depth);
+	}
+
+	if (root->right == NULL)
+	{
+		right_depth = root->depth;
+	}
+	else
+	{
+		find_max_depth(root->right, &right_depth);
+	}
+
+	return right_depth - left_depth;
+}
