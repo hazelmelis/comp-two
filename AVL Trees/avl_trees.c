@@ -24,7 +24,7 @@ void adjust_depths(Node* root, int depth_change);
 
 
 void inorder(Node* root);
-void preorder(Node* root);
+//void preorder(Node* root);
 
 int main(int argc, char* argv[])
 {
@@ -92,7 +92,6 @@ void binary_search(Node** pRoot, Node* insertion)
 	if (*pRoot == NULL)
 	{
 		*pRoot = insertion;
-		return;
 	}
 	else
 	{
@@ -196,7 +195,6 @@ void check_for_balance(Node** root)
 
 void right_rotation(Node** root)
 {
-	//printf("Balance needed at %d bf: %d\n", (*root)->data, get_balance_factor(*root));
 	Node* new_root = (*root)->left;
 	new_root->depth--;
 	adjust_depths(new_root->left, -1);
@@ -213,7 +211,6 @@ void right_rotation(Node** root)
 
 void left_rotation(Node** pRoot)
 {
-	printf("Left rotation! needed at %d\n", (*pRoot)->data);
 	Node* new_root = (*pRoot)->right;
 	new_root->depth++;
 	adjust_depths(new_root->right, -1);
@@ -230,14 +227,14 @@ void left_rotation(Node** pRoot)
 
 void double_right_rotation(Node** pRoot)
 {
-	printf("double right shift needed at %d\n", (*pRoot)->data);
 	left_rotation(&((*pRoot)->left));
 	right_rotation(pRoot);
 }
 
 void double_left_rotation(Node** pRoot)
 {
-	printf("double left\n");
+	right_rotation(&((*pRoot)->right));
+	left_rotation(pRoot);
 }
 
 void adjust_depths(Node* root, int depth_change)
@@ -249,11 +246,11 @@ void adjust_depths(Node* root, int depth_change)
 	adjust_depths(root->right, depth_change);
 }
 
-void preorder(Node* root)
-{
-	if (root == NULL) return;
-
-	preorder(root->left);
-	preorder(root->right);
-	printf("%d\n", root->data);
-}
+//void preorder(Node* root)
+//{
+//	if (root == NULL) return;
+//
+//	preorder(root->left);
+//	preorder(root->right);
+//	printf("%d\n", root->data);
+//}
