@@ -17,6 +17,8 @@ Node* recRev(Node* head);
 
 void refRev(Node** pHead);
 
+Node* copy_list(Node* head);
+
 int main(int argc, char* argv[])
 {
 	Node* head = NULL;
@@ -26,12 +28,14 @@ int main(int argc, char* argv[])
 		head_insert(&head, i);
 	}
 
+	Node* head_copy = copy_list(head);
+
+	printf("Deep copy list\n");
+	head->next->next->data = 80000;
 	print_list(head);
 
-	//head = recRev(head);
-	refRev(&head);
-	printf("\n");
-	print_list(head);
+	print_list(head_copy);
+
 
 	return 0;
 }
@@ -98,4 +102,21 @@ void refRev(Node** pHead)
 	refRev(&((*pHead)->next));
 	(*pHead)->next->next = *pHead;
 	(*pHead)->next = NULL;
+}
+
+Node* copy_list(Node* head)
+{
+	Node* new_head;
+	if (head == NULL)
+	{
+		new_head = NULL;
+	}
+	else
+	{
+		new_head = malloc(sizeof(Node));
+		new_head->data = head->data;
+		new_head->next = copy_list(head->next);
+	}
+
+	return new_head;
 }

@@ -29,7 +29,7 @@ void inorder(Node* root);
 int main(int argc, char* argv[])
 {
 	Node* root = NULL;
-	/*tree_insert(&root, 3);
+	tree_insert(&root, 3);
 
 	tree_insert(&root, 10);
 	tree_insert(&root, 7);
@@ -42,7 +42,8 @@ int main(int argc, char* argv[])
 	tree_insert(&root, 17);
 
 	tree_insert(&root, 46);
-	tree_insert(&root, 45);*/
+	tree_insert(&root, 45);
+	check_for_balance(&root);
 
 
 	/*tree_insert(&root, 7);
@@ -55,13 +56,13 @@ int main(int argc, char* argv[])
 
 	tree_insert(&root, 9);*/
 
-	tree_insert(&root, 10);
+	/*tree_insert(&root, 10);
 	tree_insert(&root, 7);
 	tree_insert(&root, 12);
 	tree_insert(&root, 3);
 	tree_insert(&root, 9);
 	tree_insert(&root, 8);
-	check_for_balance(&root);
+	check_for_balance(&root);*/
 
 
 	inorder(root);
@@ -114,7 +115,7 @@ void inorder(Node* root)
 	if (root != NULL)
 	{
 		inorder(root->left);
-		printf("%d  balance factor: %d\n", root->data, get_balance_factor(root));
+		printf("%d  balance factor: %d  depth: %d\n", root->data, get_balance_factor(root), root->depth);
 		inorder(root->right);
 	}
 }

@@ -8,7 +8,8 @@ int main(int argc, char* argv[])
 
 	for (int i = 0; i < 30; ++i)
 	{
-		x = rand() % 6 + 1;
+		x = rand() % 2;
 		printf("%d\n", x);
 	}
+
 }
