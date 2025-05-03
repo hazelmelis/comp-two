@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node Node;
+typedef struct node Node, *Node_Ptr;
 
 struct node
 {
@@ -15,7 +15,7 @@ int identical_trees(Node* root1, Node* root2);
 
 int main(int argc, char* argv[])
 {
-	Node* root1 = NULL;
+	Node_Ptr root1 = NULL;
 	tree_insert(&root1, 6);
 	tree_insert(&root1, 2);
 	tree_insert(&root1, 1);
@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
 	Node* root2 = NULL;
 	tree_insert(&root2, 6);
 	tree_insert(&root2, 2);
+	tree_insert(&root2, 1);
 	tree_insert(&root2, 8);
 	tree_insert(&root2, 20);
 
